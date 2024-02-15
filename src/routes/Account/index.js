@@ -89,10 +89,19 @@ function RenderTime(props) {
 		return () => clearInterval(interval)
 	}, [token, algorithm, digits, period, secret, time])
 
-	let handleCopy = () => {
-		let text = token.replace(/\s/g, "")
-		navigator.clipboard.writeText(text)
-		toast("Copied to clipboard")
+	let handleCopy = (e) => {
+		let number = e.detail
+
+		if (number === 1) {
+			let text = token.replace(/\s/g, "")
+			navigator.clipboard.writeText(text)
+			toast("Copied to clipboard")
+			return
+		}
+
+		if (number === 2) {
+			window.close()
+		}
 	}
 	
 
@@ -104,7 +113,7 @@ function RenderTime(props) {
 				</div>
 				<div className={renderStyle.right}>
 					<span className={renderStyle.heading}>{"One-time password code"}</span>
-					<span onClick={handleCopy} className={renderStyle.otpNumber}>{token}</span>
+					<span onClick={handleCopy}  className={renderStyle.otpNumber}>{token}</span>
 				</div>
 			</div>
 		</>
