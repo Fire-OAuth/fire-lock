@@ -51,6 +51,7 @@ let IssuerPics = {
     "WhatsApp": "./IssuerPics/WhatsApp.svg",
     "Tesco": "./IssuerPics/Tesco.svg",
     "Azure": "./IssuerPics/Azure.svg",
+    "Meta": "./IssuerPics/Meta.svg"
 }
 
 export function returnIssuerImage(issuer, string = "") {
