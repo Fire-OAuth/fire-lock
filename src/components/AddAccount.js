@@ -55,8 +55,13 @@ let IssuerPics = {
 }
 
 export function returnIssuerImage(issuer, string = "") {
-    if(IssuerPics[issuer]) return `${string}./IssuerPics/${issuer}.svg`
-    return `${string}./IssuerPics/default.svg`
+    const issuerLowerCase = issuer.toLowerCase();
+    for (let key in IssuerPics) {
+        if (key.toLowerCase() === issuerLowerCase) {
+            return `${string}${IssuerPics[key]}`;
+        }
+    }
+    return `${string}./IssuerPics/default.svg`;
 }
 
 // Code I copied from otpauth-uri-parser
